@@ -1,11 +1,3 @@
-library(Seurat)
-library(ggplot2)
-library(ggforce)
-library(dplyr)
-library(data.table)
-library(R6)
-library(utils)
-
 #' Visualize T cell clonal expansion with a ball-packing plot.
 #'
 #' Integrates a cell ranger T cell library into a Seurat object with a UMAP
@@ -51,12 +43,29 @@ library(utils)
 #' data("mini_clonotype_data","mini_seurat_obj")
 #'
 #' # produce and show the ball-packing plot by integrating the data
-#' ball_pack_plot <- clonal_expansion_plot(mini_seurat_obj, mini_clonotype_data)
+#' ball_pack_plot <- clonal_expansion_plot(
+#'   mini_seurat_obj, mini_clonotype_data, verbose = FALSE
+#' )
+#' 
+#' #> integrating TCR library into seurat object
+#' #>   |===============================================| 100%
+#' #> Percent of unique barcodes: 100 %
+#' #>
+#' #> packing cluster 0
+#' #> [==================================================] 100%
+#' #> packing cluster 1
+#' #> [==================================================] 100%
+#' #> Plotting completed successfully
+#' 
 #' ball_pack_plot
 #' 
-#' # it's also possible to input an integrated Seurat object
-#' integrated_seurat_object <- integrate_tcr(mini_seurat_obj, mini_clonotype_data)
-#' ball_pack_plot <- clonal_expansion_plot(integrated_seurat_object)
+#' # it's also possible (and preferable) to input an integrated Seurat object
+#' integrated_seurat_object <- integrate_tcr(
+#'   mini_seurat_obj, mini_clonotype_data, verbose = FALSE
+#' )
+#' ball_pack_plot <- clonal_expansion_plot(
+#'   integrated_seurat_object, verbose = FALSE
+#' )
 #' ball_pack_plot
 #'
 clonal_expansion_plot <- function(
@@ -79,7 +88,10 @@ clonal_expansion_plot <- function(
   legend_position = "top_left",
   legend_buffer = 1.5,
   legend_color = "#808080",
-  legend_spacing = 0.4) {
+  legend_spacing = 0.4
+) {
+  # time called
+  time_called <- Sys.time()
 
   # errors/warnings:
   if (is.null(seurat_obj@reductions[["umap"]])) {stop("No UMAP reduction found on the seurat object")}
@@ -92,26 +104,28 @@ clonal_expansion_plot <- function(
 
   # integrate TCR and count clonotypes
   if (is.data.frame(tcr_df)) {
-    seurat_obj <- integrate_tcr(seurat_obj, tcr_df, verbose = verbose)
+    seurat_obj <- dev_integrate_tcr(seurat_obj, tcr_df, verbose, time_called)
   }
   
   clone_size_list <- get_clone_sizes(seurat_obj, scale_factor = clone_scale_factor)
   centroid_list <- get_cluster_centroids(seurat_obj)
 
   # pack the plot
-  result_plot <- plot_API(sizes = clone_size_list,
-                          centroids = centroid_list,
-                          num_clusters = count_umap_clusters(seurat_obj),
-                          rad_decrease = rad_scale_factor,
-                          ORDER = ORDER,
-                          try_place = try_place,
-                          progbar = verbose,
-                          repulse = repulse,
-                          thr = repulsion_threshold,
-                          G = repulsion_strength,
-                          max_repulsion_iter = max_repulsion_iter,
-                          n = res,
-                          origin = show_origin)
+  result_plot <- plot_API(
+    sizes = clone_size_list,
+    centroids = centroid_list,
+    num_clusters = count_umap_clusters(seurat_obj),
+    rad_decrease = rad_scale_factor,
+    ORDER = ORDER,
+    try_place = try_place,
+    progbar = verbose,
+    repulse = repulse,
+    thr = repulsion_threshold,
+    G = repulsion_strength,
+    max_repulsion_iter = max_repulsion_iter,
+    n = res,
+    origin = show_origin
+  )
   
   #set theme
   if (use_default_theme) {
@@ -129,7 +143,14 @@ clonal_expansion_plot <- function(
     result_plot <- suppressMessages(invisible(retain_scale(seurat_obj, result_plot)))
   }
   
-  if (verbose) {message("\nPlotting completed successfully")}
+  if (verbose) {
+    message(paste(
+      "\nPlotting completed successfully, time elapsed:",
+      round(as.numeric(Sys.time() - time_called), 2),
+      "seconds\n"
+    ))
+  }
+  
   if (add_size_legend) {
     return(insert_legend(
       plt = result_plot, circ_scale_factor = clone_scale_factor, sizes = legend_sizes,

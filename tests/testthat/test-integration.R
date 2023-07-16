@@ -1,19 +1,22 @@
-suppressPackageStartupMessages(library(Seurat))
-library(data.table)
-library(utils)
-
 source("testdata/SCIP.R")
 
 test_that("integrate_tcr() works", {
+  capture_output(
+    integration_attempt <- suppressMessages(
+      dev_integrate_tcr(test_pbmc, test_tcr, TRUE, FALSE)
+    )
+  )
   expect_identical(
-    suppressMessages(invisible(integrate_tcr(test_pbmc, test_tcr))),
-    test_integrated_pbmc)
+    integration_attempt,
+    test_integrated_pbmc
+  )
 })
 
 test_that("integrate_tcr() works with verbose = FALSE", {
   expect_identical(
-    integrate_tcr(test_pbmc, test_tcr, verbose = FALSE),
-    test_integrated_pbmc)
+    dev_integrate_tcr(test_pbmc, test_tcr, verbose = FALSE, FALSE),
+    test_integrated_pbmc
+  )
 })
 
 test_that("percent_na() works", {
