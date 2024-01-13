@@ -1,34 +1,18 @@
-source("testdata/SCIP.R")
+# TODO need to redo everything here, based on filtering confition
+# NOT COMPREHENSIVE
 
-untable <- function(a) {
-  as.numeric(unname(a))
-}
-
-test_that("get_clone_sizes works", {
-  trial <- get_clone_sizes(test_integrated_pbmc, scale_factor = 1)
-  
-  expect_equal(length(trial), 2)
-  expect_equal(round(sum(trial[[1]])), 36)
-  expect_equal(round(sum(trial[[2]])), 23)
-  
-  trial_cl_1_tabled <- untable(table(trial[[1]]))
-  trial_cl_2_tabled <- untable(table(trial[[2]]))
-
-  expect_equal(trial_cl_1_tabled, c(12,12,2,2))
-  expect_equal(trial_cl_2_tabled, c(10,7,2))
+test_that("count_raw_clone_sizes works", {
+	expect_identical(
+		count_raw_clone_sizes(get(data("combined_pbmc")), 17, "CTstrict"),
+		getdata("get_clone_sizes", "raw_strict_clone_sizes")
+	)
 })
 
-test_that("count_clone_sizes works", {
-  trial <- count_clone_sizes(test_integrated_pbmc)
-  expect_equal(length(trial), 2)
-  expect_equal(untable(trial[[1]]), c(12,12,2,2))
-  expect_equal(untable(trial[[2]]), c(10,7,2))
+test_that("countCloneSizes works", {
+	expect_identical(
+		countCloneSizes(get(data("combined_pbmc"))),
+		getdata("get_clone_sizes", "raw_strict_clone_sizes")
+	)
 })
 
-test_that("get_transformed_clone_sizes works", {
-  sizelist <- list(c(1,1,2), NULL, c(0.5,3))
-  expect_equal(
-    get_transformed_clone_sizes(sizelist, 0.5, 3),
-    list(c(0.5, 0.5, sqrt(2)*0.5), list(), c(sqrt(0.5)*0.5, sqrt(3)*0.5))
-  )
-})
+# TODO other functions

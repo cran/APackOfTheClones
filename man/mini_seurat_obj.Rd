@@ -7,32 +7,32 @@
 \format{
 A Seurat object with the following slots filled
 \describe{
-  \item{assays}{
-  \itemize{Currently only contains one assay ("RNA" - scRNA-seq expression data)
-  \item{counts - Raw expression data}
-  \item{data - Normalized expression data}
-  \item{scale.data - Scaled expression data}
-  \item{var.features - names of the current features selected as variable}
-  \item{meta.features - Assay level metadata such as mean and variance}
-   }}
-  \item{meta.data}{Cell level metadata}
-  \item{active.assay}{Current default assay}
-  \item{active.ident}{Current default idents}
-  \item{graphs}{Neighbor graphs computed, currently stores the SNN}
-  \item{reductions}{Dimensional reductions: PCA, UMAP, and tSNE}
-  \item{version}{Seurat version used to create the object}
-  \item{commands}{Command history}
+\item{assays}{
+\itemize{Currently only contains one assay ("RNA" - scRNA-seq expression data)
+\item{counts - Raw expression data}
+\item{data - Normalized expression data}
+\item{scale.data - Scaled expression data}
+\item{var.features - names of the current features selected as variable}
+\item{meta.features - Assay level metadata such as mean and variance}
+}}
+\item{meta.data}{Cell level metadata}
+\item{active.assay}{Current default assay}
+\item{active.ident}{Current default idents}
+\item{graphs}{Neighbor graphs computed, currently stores the SNN}
+\item{reductions}{Dimensional reductions: PCA, UMAP, and tSNE}
+\item{version}{Seurat version used to create the object}
+\item{commands}{Command history}
 }
 }
 \usage{
 data("mini_seurat_obj")
 }
 \description{
-A generated 'SeuratObject' of a small sc-RNAseq experiment. 
+A generated 'SeuratObject' of a small single-sample sc-RNAseq experiment.
 Has a corresponding T-cell receptor library generated from
-single cell immune profiling, named `"mini_clonotype_data"`
+single cell immune profiling, named \code{"mini_clonotype_data"}
 }
 \seealso{
-\code{\link{mini_clonotype_data}}
+\code{\link[=mini_clonotype_data]{mini_clonotype_data()}}
 }
 \keyword{datasets}

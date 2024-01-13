@@ -5,29 +5,31 @@
 \alias{mini_clonotype_data}
 \title{Artificially generated T cell receptor library}
 \format{
-`data.frame`
+\code{data.frame}
 A data frame with 80 rows and 2 columns:
 \describe{
-  \item{barcode}{barcodes corresponding to each sequenced cell}
-  \item{raw_clonotype_id}{clonotype information for each cell}
+\item{barcode}{barcodes corresponding to each sequenced cell}
+\item{raw_clonotype_id}{clonotype information for each cell}
 }
 }
 \usage{
 data("mini_clonotype_data")
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
 A generated dataframe of a T-cell receptor (TCR) library generated from
 single cell immune profiling. It is a subset the full dataframe
 which would usually have up to 18 columns containing different data,
 because the intended purpose of this object is to test various functions
-in 'APackOfTheClones'. The dataframe compliments `mini_seurat_obj` and
-can be integrated into it with `integrate_tcr`.
+in 'APackOfTheClones'. The dataframe compliments \code{mini_seurat_obj} and
+can be integrated into it with \code{integrate_tcr}.
 }
 \details{
-Note that the clonotypes in the `raw_clonotype_id` column
-actually do not contain all of clonotype`1`...clonotype`n`
+Note that the clonotypes in the \code{raw_clonotype_id} column
+actually do not contain all of clonotype\code{1}...clonotype\code{n}
 }
 \seealso{
-\code{\link{mini_seurat_obj}}
+\code{\link[=mini_seurat_obj]{mini_seurat_obj()}}
 }
-\keyword{datasets}
+\keyword{internal}

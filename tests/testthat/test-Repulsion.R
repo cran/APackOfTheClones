@@ -1,4 +1,4 @@
-source("testdata/cluster_lists.R")
+sourcedata("v0", "cluster_lists")
 
 test_that("get_average_vector() works", {
   expect_equal(get_average_vector(list(c(1, 1), c(1, 2), c(-1, -9))), c(1/3,-2))
@@ -120,7 +120,7 @@ test_that("repulse_cluster() works", {
                                                                                      8.2183890523023, 6.09144728620823), rad = c(1.3, 1.3, 1, 1, 1, 
                                                                                                                                  1, 1, 1, 1), centroid = c(4.55085353933408, 5.6885669241676), 
                                                                             clRad = 4.58851376253731)),
-    tolerance = 1e-6 
+    tolerance = 1e-6
   )
 })
 # need more testcases
