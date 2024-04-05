@@ -7,11 +7,6 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(echo = FALSE)
 options(repos = c(CRAN = "http://cran.rstudio.com"))
 
-# utility functions
-head <- function(df) {
-  knitr::kable(utils::head(df))
-}
-
 quiet_load_all_CRAN <- function(...) {
   for (pkg in list(...)) {
     if (require(pkg, quietly = TRUE, character.only = TRUE)) next
@@ -25,17 +20,24 @@ quiet_load_all_CRAN <- function(...) {
 }
 
 # load packages
-quiet_load_all_CRAN("ggplot2", "cowplot", "Seurat")
+quiet_load_all_CRAN("ggplot2", "cowplot", "Seurat", "magrittr")
 
 ## ----setup--------------------------------------------------------------------
 suppressPackageStartupMessages(library(APackOfTheClones))
+# load data
+pbmc <- get(data("combined_pbmc"))
 
-## ----setup_seurat, eval = FALSE-----------------------------------------------
+## ----load_data, eval = TRUE, echo = FALSE, include = FALSE--------------------
+# TODO use a nicer looking dataset
+pbmc <- get(data("combined_pbmc"))
+
+## ----setup_seurat, echo = TRUE, eval = FALSE----------------------------------
 #  library(scRepertoire)
 #  
+#  # A seurat object named `pbmc` is loaded with a corresponding `contig_list`
 #  pbmc <- scRepertoire::combineExpression(
 #    scRepertoire::combineTCR(
-#      get(data("contig_list", package = "scRepertoire")),
+#      contig_list,
 #      samples = c("P17B", "P17L", "P18B", "P18L", "P19B", "P19L", "P20B", "P20L"),
 #      removeNA = FALSE,
 #      removeMulti = FALSE,
@@ -45,15 +47,11 @@ suppressPackageStartupMessages(library(APackOfTheClones))
 #    cloneCall = "gene",
 #    proportion = TRUE
 #  )
-#  
-#  print(pbmc)
 
-## ----actual_print_pbmc, eval = TRUE, echo = TRUE, include = FALSE-------------
-# TODO use a nicer looking dataset
-pbmc <- get(data("combined_pbmc"))
+## ----actual_print_pbmc, eval = TRUE, echo = TRUE------------------------------
 print(pbmc)
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 #  # Here is the function ran with its default parameters
 #  pbmc <- RunAPOTC(pbmc)
 #  
@@ -73,7 +71,7 @@ print(pbmc)
 ## ----runapotc_default, include = FALSE----------------------------------------
 pbmc <- RunAPOTC(pbmc, verbose = FALSE)
 
-## ----runapotc2----------------------------------------------------------------
+## ----runapotc2, echo = TRUE---------------------------------------------------
 pbmc <- RunAPOTC(
     pbmc, run_id = "sample17", orig.ident = c("P17B", "P17L"), verbose = FALSE
 )
@@ -84,8 +82,8 @@ pbmc <- RunAPOTC(
 #  ...,
 #  extra_filter = NULL,
 
-## ----apotcplot----------------------------------------------------------------
-# Here, plots for samples 17, 18, and 19 as seen in the previous vignette are made, where
+## ----apotcplot, echo = TRUE---------------------------------------------------
+# Here, plots for samples 17 - 20 as seen in the previous vignette are made, where
 # `orig.ident` is a custom column in the example data with levels corresponding to sample ids:
 # ("P17B" "P17L" "P18B" "P18L" "P19B" "P19L" "P20B" "P20L"). 
 
@@ -101,11 +99,73 @@ pbmc <- RunAPOTC(
   pbmc, run_id = "P19", orig.ident = c("P19B", "P19L"), verbose = FALSE
 )
 
+pbmc <- RunAPOTC(
+  pbmc, run_id = "P20", orig.ident = c("P20B", "P20L"), verbose = FALSE
+)
+
 cowplot::plot_grid(
-  vizAPOTC(pbmc, verbose = FALSE),
-  APOTCPlot(pbmc, run_id = "P17"),
-  APOTCPlot(pbmc, run_id = "P18"),
-  APOTCPlot(pbmc), # run_id omitted as sample 19 was the latest run
-  labels = c("all", "17", "18", "19")
+  APOTCPlot(pbmc, run_id = "P17", retain_axis_scales = TRUE, add_size_legend = FALSE),
+  APOTCPlot(pbmc, run_id = "P18", retain_axis_scales = TRUE, add_size_legend = FALSE),
+  APOTCPlot(pbmc, run_id = "P19", retain_axis_scales = TRUE, add_size_legend = FALSE),
+  APOTCPlot(pbmc, retain_axis_scales = TRUE, add_size_legend = FALSE), # defaults to latest
+  labels = c("17", "18", "19", "20")
+)
+
+## ----echo = TRUE, eval = FALSE------------------------------------------------
+#  new_rad_scale_factor = NULL,
+#  new_clone_scale_factor = NULL,
+#  relocate_cluster = NULL,
+#  relocation_coord = NULL,
+#  nudge_cluster = NULL,
+#  nudge_vector = NULL,
+#  recolor_cluster = NULL,
+#  new_color = NULL,
+#  rename_label = NULL,
+#  new_label = NULL,
+#  relocate_label = NULL,
+#  label_relocation_coord = NULL,
+#  nudge_label = NULL,
+#  label_nudge_vector = NULL,
+#  verbose = TRUE
+
+## ----first_four_labeled, echo = TRUE------------------------------------------
+# Do a run with just the first 4 seurat clusters, and rename labels
+pbmc <- RunAPOTC(
+    pbmc,
+    run_id = "first_four",
+    seurat_clusters = 1:4,
+    verbose = FALSE
+)
+
+pbmc <- AdjustAPOTC(
+    pbmc,
+    run_id = "first_four",
+    rename_label = 1:4,
+    new_label = letters[1:4],
+    verbose = FALSE
+)
+
+APOTCPlot(
+    pbmc,
+    run_id = "first_four",
+    show_labels = TRUE,
+    retain_axis_scales = TRUE
+)
+
+## ----repulse_again, echo = TRUE-----------------------------------------------
+pbmc <- pbmc %>%
+    RunAPOTC(run_id = "foo", verbose = FALSE) %>%
+    AdjustAPOTC(
+        run_id = "foo",
+        repulse = TRUE,
+        repulsion_threshold = 0.5,
+        verbose = FALSE
+    )
+
+APOTCPlot(
+    pbmc,
+    show_labels = TRUE,
+    retain_axis_scales = TRUE,
+    add_size_legend = FALSE
 )
 

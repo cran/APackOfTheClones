@@ -27,10 +27,12 @@ quiet_load_all_CRAN <- function(...) {
 # load packages
 quiet_load_all_CRAN("ggplot2", "cowplot", "Seurat")
 
+# TODO improve entire vignette
+
 ## ----setup--------------------------------------------------------------------
 suppressPackageStartupMessages(library(APackOfTheClones))
 
-## ----combineTCR, eval = FALSE-------------------------------------------------
+## ----combineTCR, eval = FALSE, echo = TRUE------------------------------------
 #  library(scRepertoire)
 #  
 #  # load in the corresponding 6-sample TCR contigs from scRepertoire
@@ -45,7 +47,7 @@ suppressPackageStartupMessages(library(APackOfTheClones))
 #    filterMulti = FALSE
 #  )
 
-## ----combining, eval = FALSE--------------------------------------------------
+## ----combining, eval = FALSE, echo = TRUE-------------------------------------
 #  # a seurat object corresponding to combined_contig_list named `pbmc` is loaded
 #  pbmc <- scRepertoire::combineExpression(
 #    combined_contig_list,
@@ -53,17 +55,17 @@ suppressPackageStartupMessages(library(APackOfTheClones))
 #    cloneCall = "gene",
 #    proportion = TRUE
 #  )
-#  
-#  print(pbmc)
 
-## ----actual_print_pbmc, eval = TRUE, echo = TRUE, include = FALSE-------------
+## ----actual_print_pbmc, eval = TRUE, echo = FALSE, include = FALSE------------
 # TODO use a nicer looking dataset
 pbmc <- get(data("combined_pbmc"))
-print(pbmc)
 
 ## ----umap, echo = TRUE--------------------------------------------------------
+library(Seurat)
+library(ggplot2)
+
 pbmc_umap_plot <- UMAPPlot(pbmc)
-pbmc_umap_plot
+pbmc_umap_plot + coord_fixed()
 
 ## ----initial_vizapotc, echo = TRUE--------------------------------------------
 default_apotc_plot <- vizAPOTC(pbmc, verbose = FALSE)
@@ -71,23 +73,31 @@ default_apotc_plot
 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
 #  reduction_base = "umap",
-#  clonecall = "strict",
+#  clonecall = "strict"
 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
 #  ...,
-#  extra_filter = NULL,
+#  extra_filter = NULL
 
-## ----subsetting, echo = TRUE--------------------------------------------------
+## ----subsetting, echo = TRUE, fig.dim = c(6, 6)-------------------------------
 # `orig.ident` is a custom column in the example data with levels corresponding to sample ids:
 # ("P17B" "P17L" "P18B" "P18L" "P19B" "P19L" "P20B" "P20L"). Here, it is subsetted
 # by the keyword argument approach
 subset_sample_17_plot <- vizAPOTC(
-  pbmc, orig.ident = c("P17B", "P17L"), verbose = FALSE
+  pbmc,
+  orig.ident = c("P17B", "P17L"),
+  retain_axis_scales = TRUE,
+  add_size_legend = FALSE,
+  verbose = FALSE
 )
 
 # here, it is subsetted with `extra_filter` for sample 18 with dplyr syntax:
 subset_sample_18_plot <- vizAPOTC(
-  pbmc, extra_filter = "substr(orig.ident, 1, 3) == 'P18'", verbose = FALSE
+  pbmc,
+  extra_filter = "substr(orig.ident, 1, 3) == 'P18'",
+  retain_axis_scales = TRUE,
+  add_size_legend = FALSE,
+  verbose = FALSE
 )
 
 # here, sample 19 is subsetted with both arguments to show that they work in conjunction
@@ -95,11 +105,13 @@ subset_sample_19_plot <- vizAPOTC(
   pbmc,
   orig.ident = "P19B",
   extra_filter = "orig.ident == 'P19L' | orig.ident == 'P19B'",
+  retain_axis_scales = TRUE,
+  add_size_legend = FALSE,
   verbose = FALSE
 )
 
 cowplot::plot_grid(
-  default_apotc_plot,
+  vizAPOTC(combined_pbmc, add_size_legend = FALSE, verbose = FALSE),
   subset_sample_17_plot,
   subset_sample_18_plot,
   subset_sample_19_plot,
@@ -134,5 +146,14 @@ cowplot::plot_grid(
 #  label_size = 5,
 
 ## ----void_labelled_plot, echo = TRUE------------------------------------------
-vizAPOTC(pbmc, show_labels = TRUE, use_default_theme = FALSE, verbose = FALSE)
+vizAPOTC(
+  pbmc,
+  repulsion_threshold = 0.9,
+  show_labels = TRUE,
+  label_size = 3,
+  legend_text_size = 3.5,
+  add_legend_background = FALSE,
+  use_default_theme = FALSE,
+  verbose = FALSE
+)
 
