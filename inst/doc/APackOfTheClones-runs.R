@@ -28,7 +28,6 @@ suppressPackageStartupMessages(library(APackOfTheClones))
 pbmc <- get(data("combined_pbmc"))
 
 ## ----load_data, eval = TRUE, echo = FALSE, include = FALSE--------------------
-# TODO use a nicer looking dataset
 pbmc <- get(data("combined_pbmc"))
 
 ## ----setup_seurat, echo = TRUE, eval = FALSE----------------------------------
@@ -81,6 +80,7 @@ pbmc <- RunAPOTC(
 #  clonecall = NULL,
 #  ...,
 #  extra_filter = NULL,
+#  alt_ident = NULL
 
 ## ----apotcplot, echo = TRUE---------------------------------------------------
 # Here, plots for samples 17 - 20 as seen in the previous vignette are made, where

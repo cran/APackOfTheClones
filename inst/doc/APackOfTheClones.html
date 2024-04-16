@@ -462,7 +462,8 @@ fine-tune the visualization until publication-ready.</p>
 representations</h2>
 <p>The arguments to do so are:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reduction_base <span class="ot">=</span> <span class="st">&quot;umap&quot;</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>clonecall <span class="ot">=</span> <span class="st">&quot;strict&quot;</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>clonecall <span class="ot">=</span> <span class="st">&quot;strict&quot;</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>alt_ident <span class="ot">=</span> <span class="cn">NULL</span></span></code></pre></div>
 <p><code>reduction_base</code> indicates what each seurat cluster’s
 centroid locations should be based upon, so UMAP, T-SNE, or PCA
 (provided the reduction has been ran on the object).
@@ -482,6 +483,13 @@ pass into the clonecall parameter:</p>
 custom definition of clones and added it to the meta data, or if BCR
 clonal data is present, since <a href="https://doi.org/10.3389/fimmu.2023.1123968">the definition of a
 clone for B-cells isn’t as clear as it is for TCRs</a>.</p>
+<p>Lastly, by default, clonotypes are grouped into clusters based on the
+current active identity of all cells (<code>Idents(pbmc)</code>) which
+is the case when <code>alt_ident = NULL</code>. However, to work with
+some alternative ident that was added to the seurat metadata either
+manually or via <code>Seurat::StashIdent</code>, simply set
+<code>alt_ident</code> to a character representing the name of that
+column.</p>
 </div>
 <div id="working-with-a-data-subset" class="section level2">
 <h2>Working With a Data Subset</h2>

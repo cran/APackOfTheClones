@@ -344,10 +344,10 @@ Clusters</h1>
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>A novel experimental feature in this package is the ability to get,
-filter, and visualize clonotypes that are common across seurat clusters.
-Potential applications include the ability to quickly and intuitively
-gauge the rough clonal heterogeneity of certain clusters. Note that in
+<p>A novel feature in this package is the ability to get, filter, and
+visualize clonotypes that are common across seurat clusters. Potential
+applications include the ability to quickly and intuitively gauge the
+rough clonal heterogeneity of certain clusters. Note that in
 scRepertoire, the <code>scRepertoire::clonalNetwork</code> function does
 something similar for the original dimensional reductions using arrows,
 though those display the aggregated degree of commonality between each
@@ -374,13 +374,15 @@ clusters that the clonotype name at its index correspond to.</p>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">clonecall =</span> <span class="st">&quot;strict&quot;</span>,</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    ...,</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">extra_filter =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">run_id =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">top =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">top_per_cl =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">intop =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">intop_per_cl =</span> <span class="cn">NULL</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>The last four optional arguments allow additional filtering of the
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alt_ident =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">run_id =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">top =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">top_per_cl =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">intop =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">intop_per_cl =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">publicity =</span> <span class="fu">c</span>(2L, <span class="cn">Inf</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>The last five optional arguments allow additional filtering of the
 shared clonotypes. Most notably, <code>top</code> will filter the
 resulting shared clonotypes to only those ranked in the <code>top</code>
 frequencies, either as a proportion or number. More details can be found

@@ -27,8 +27,6 @@ quiet_load_all_CRAN <- function(...) {
 # load packages
 quiet_load_all_CRAN("ggplot2", "cowplot", "Seurat")
 
-# TODO improve entire vignette
-
 ## ----setup--------------------------------------------------------------------
 suppressPackageStartupMessages(library(APackOfTheClones))
 
@@ -57,7 +55,6 @@ suppressPackageStartupMessages(library(APackOfTheClones))
 #  )
 
 ## ----actual_print_pbmc, eval = TRUE, echo = FALSE, include = FALSE------------
-# TODO use a nicer looking dataset
 pbmc <- get(data("combined_pbmc"))
 
 ## ----umap, echo = TRUE--------------------------------------------------------
@@ -73,7 +70,8 @@ default_apotc_plot
 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
 #  reduction_base = "umap",
-#  clonecall = "strict"
+#  clonecall = "strict",
+#  alt_ident = NULL
 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
 #  ...,
