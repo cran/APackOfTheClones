@@ -29,27 +29,27 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -63,55 +63,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -364,7 +363,7 @@ table object corresponding to the clonotype frequencies for that
 cluster, and a cluster with no clonotypes will have an empty table at
 its index. Alternatively, it can also get the aggregate clone sizes. It
 also allows for the same filtering arguments as seen in
-<code>RunAPOTC</code> and <code>vizAPOTC</code>.</p>
+<code>RunAPOTC()</code> and <code>vizAPOTC()</code>.</p>
 </div>
 <div id="getting-clonotypes-common-across-seurat-clusters" class="section level2">
 <h2>Getting Clonotypes Common Across Seurat Clusters</h2>
@@ -374,57 +373,57 @@ named list where the names are the clonotypes and the elements are
 numeric vectors where each number is one of the clusters that the
 clonotype name at its index correspond to. A combined seurat object is
 loaded with the variable name <code>pbmc</code>::</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getSharedClones</span>(pbmc, <span class="at">clonecall =</span> <span class="st">&quot;aa&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CASLSGSARQLTF_CASSPTVAGEQFF</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5 9</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CVVSDFGNEKLTF_CASSLGSGGTGNEQFF</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 5</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CVVSDNTGGFKTIF_CASSVRRERANTGELFF</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 4</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $`CAVGEKGYGGSQGNLIF_CASSFRPPGSPLHF;CASHGARGDGFCEKLFF`</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 5</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CARKVRDSSYKLIF_CASSDSGYNEQFF</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 5</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CASLSGSARQLTF_CASSSTVAGEQYF</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4 5</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CAVTFHYNTDKLIF_CASSQDRTGLDYEQYF</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4 9</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CALSGSRDDKIIF_NA</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  3 13</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CAELNQAGTALIF_CASSQAPFSTSGELFF</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 5 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">getSharedClones</span>(pbmc, <span class="at">clonecall =</span> <span class="st">&quot;aa&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; $CASLSGSARQLTF_CASSPTVAGEQFF</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] 5 9</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; $CVVSDFGNEKLTF_CASSLGSGGTGNEQFF</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; [1] 3 5</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; $CVVSDNTGGFKTIF_CASSVRRERANTGELFF</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; [1] 3 4</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; $`CAVGEKGYGGSQGNLIF_CASSFRPPGSPLHF;CASHGARGDGFCEKLFF`</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; [1] 3 5</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; $CARKVRDSSYKLIF_CASSDSGYNEQFF</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; [1] 3 5</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; $CASLSGSARQLTF_CASSSTVAGEQYF</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt; [1] 4 5</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt; $CAVTFHYNTDKLIF_CASSQDRTGLDYEQYF</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; [1] 4 9</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; $CALSGSRDDKIIF_NA</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="co">#&gt; [1]  3 13</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="co">#&gt; $CAELNQAGTALIF_CASSQAPFSTSGELFF</span></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co">#&gt; [1] 3 5 9</span></span></code></pre></div>
 </div>
 <div id="getting-geometric-centroids-for-seurat-reductions" class="section level2">
 <h2>Getting Geometric Centroids For Seurat Reductions</h2>
 <p>The <code>getReductionCentroids</code> function is a shortcut for
 getting the centroids as a list of numeric vectors of length 2 based on
 some existing reduction in a seurat object.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">getReductionCentroids</span>(pbmc, <span class="st">&quot;umap&quot;</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -0.5520761  1.5759817</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -3.574884  3.540254</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  0.01797853 -2.58801380</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  2.286141 -3.725952</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  2.8382880 -0.4037927</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -4.0363226 -0.4305999</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">getReductionCentroids</span>(pbmc, <span class="st">&quot;umap&quot;</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; [1] -0.5520761  1.5759817</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; [1] -3.574884  3.540254</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; [1]  0.01797853 -2.58801380</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; [1]  2.286141 -3.725952</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; [1]  2.8382880 -0.4037927</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; [1] -4.0363226 -0.4305999</span></span></code></pre></div>
 </div>
 <div id="highlighting-specific-clonotypes" class="section level2">
 <h2>Highlighting Specific Clonotypes</h2>
@@ -434,35 +433,35 @@ points in the dimensional reduction plot that correspond to user
 clonotype inputs and darkening everything else.
 <code>showCloneHighlight</code> is the APackOfTheClones equivalent that
 does so for each clonotype circle:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">showCloneHighlight</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    apotc_ggplot,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    clonotype,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color_each =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">default_color =</span> <span class="st">&quot;#808080&quot;</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">scale_bg =</span> <span class="dv">1</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill_legend =</span> <span class="cn">TRUE</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">showCloneHighlight</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    apotc_ggplot,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    clonotype,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="at">color_each =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="at">default_color =</span> <span class="st">&quot;#808080&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    <span class="at">scale_bg =</span> <span class="dv">1</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="at">fill_legend =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>)</span></code></pre></div>
 <p>The function takes in a plot <code>apotc_ggplot</code> generated by
-<code>APOTCPlot</code>/<code>vizAPOTC</code> and modifies its underlying
-ggplot data to highlight/dim clones in <code>clonotype</code>. Read the
-function level docs for more information on how to customize the
-coloring of highlights with <code>color_each</code> and
-<code>default_color</code>.</p>
+<code>APOTCPlot()</code>/<code>vizAPOTC()</code> and modifies its
+underlying ggplot data to highlight/dim clones in
+<code>clonotype</code>. Read the function level docs for more
+information on how to customize the coloring of highlights with
+<code>color_each</code> and <code>default_color</code>.</p>
 <p>A potentially useful application is to inspect the shared
 clonotypes:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the APackOfTheClones plot</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>apotc_plot <span class="ot">&lt;-</span> pbmc <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vizAPOTC</span>(<span class="at">clonecall =</span> <span class="st">&quot;aa&quot;</span>, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get the shared clonotypes</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>shared_clonotypes <span class="ot">&lt;-</span> pbmc <span class="sc">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">getSharedClones</span>(<span class="at">clonecall =</span> <span class="st">&quot;aa&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>()</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># highlight the first 3 shared clones</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>apotc_plot <span class="sc">%&gt;%</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">showCloneHighlight</span>(shared_clonotypes[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># create the APackOfTheClones plot</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>apotc_plot <span class="ot">&lt;-</span> pbmc <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    <span class="fu">vizAPOTC</span>(<span class="at">clonecall =</span> <span class="st">&quot;aa&quot;</span>, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># get the shared clonotypes</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>shared_clonotypes <span class="ot">&lt;-</span> pbmc <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>    <span class="fu">getSharedClones</span>(<span class="at">clonecall =</span> <span class="st">&quot;aa&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>    <span class="fu">names</span>()</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co"># highlight the first 3 shared clones</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>apotc_plot <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    <span class="fu">showCloneHighlight</span>(shared_clonotypes[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 
 

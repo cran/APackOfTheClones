@@ -20,7 +20,7 @@ quiet_load_all_CRAN <- function(...) {
 }
 
 # load packages
-quiet_load_all_CRAN("ggplot2", "Seurat", "magrittr", "APackOfTheClones")
+quiet_load_all_CRAN("ggplot2", "Seurat", "dplyr", "APackOfTheClones")
 
 # load data
 pbmc <- get(data("combined_pbmc"))

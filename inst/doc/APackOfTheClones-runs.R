@@ -20,7 +20,7 @@ quiet_load_all_CRAN <- function(...) {
 }
 
 # load packages
-quiet_load_all_CRAN("ggplot2", "cowplot", "Seurat", "magrittr")
+quiet_load_all_CRAN("ggplot2", "cowplot", "Seurat", "dplyr")
 
 ## ----setup--------------------------------------------------------------------
 suppressPackageStartupMessages(library(APackOfTheClones))
@@ -85,7 +85,7 @@ pbmc <- RunAPOTC(
 ## ----apotcplot, echo = TRUE---------------------------------------------------
 # Here, plots for samples 17 - 20 as seen in the previous vignette are made, where
 # `orig.ident` is a custom column in the example data with levels corresponding to sample ids:
-# ("P17B" "P17L" "P18B" "P18L" "P19B" "P19L" "P20B" "P20L"). 
+# ("P17B" "P17L" "P18B" "P18L" "P19B" "P19L" "P20B" "P20L").
 
 pbmc <- RunAPOTC(
   pbmc, run_id = "P17", orig.ident = c("P17B", "P17L"), verbose = FALSE
