@@ -1,4 +1,4 @@
-c40fe08707391cd084ae3e4ec4f43e65 *DESCRIPTION
+a42b62bf542a9f229b92d03704f93762 *DESCRIPTION
 617738b7f2d407320b9077a5529d1a03 *LICENSE
 cc10bfc92b02f2edfdee958c546c718f *NAMESPACE
 4257eefdc2fe6e125d7db1ddb008cf53 *R/APOTCPlot.R
@@ -30,7 +30,7 @@ b38077ff2766f4f988a8ceaaba0e8e33 *R/vizAPOTC.R
 aa5e5a2cbfaea3d9b6cdbe378ac48cee *build/partial.rdb
 00a7a4151c639b02e5935a9a61b40cc3 *build/vignette.rds
 f7036d03183e182932618935be2ddad0 *data/combined_pbmc.rda
-da21ddaedbaf1b24e647350d1aa16ee4 *inst/CITATION
+5cbb3206d3aa1d211482bc8a56087133 *inst/CITATION
 55ee1dca53a8bbe63e2021d56168a482 *inst/WORDLIST
 6b4b130cac3b790238550d26f5a9bff0 *inst/doc/APackOfTheClones-install.R
 9d51945432870cc2a24d145b7933ff11 *inst/doc/APackOfTheClones-install.Rmd
